@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="js/bootstrap.js">
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    </head> 
+    <body>
+        
+            <div class="row">
+                <div class="center logo-topo">
+                    <img src="img/logo.png" width="50px">
+                </div>    
+            </div>    
+
+    <div class="container">
+        <div class="row" id="data">
+			<script>
+			  var getJSON = function(url, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+    xhr.responseType = 'json';
+    xhr.onreadystatechange = function() {
+      var status = xhr.status;
+      if (status === 200) { 
+        //Callback caso de tudo certo
+        callback(null, xhr.response);
+      } else {
+        //Callback caso de algum erro
+        callback(status, xhr.response);
+      }
+    };
+    xhr.send();
+};
+
+//Utilizando o método
+getJSON('base/curso.json', function(err, data) {
+  if (err !== null) {
+    console.log('Ocorreu um erro' + err);
+  } else {
+    //Aqui você manipula os dados e pode percorrer e jogar no HTML 
+    //da forma que achar mais adequada.
+    console.log(data);
+  }
+});
+            </script>   
+        </div>
+        </div>
+        
+    </body>    
+</html>
